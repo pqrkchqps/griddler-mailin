@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Robert Guthrie']
   spec.email         = ['rob@guthr.ie']
   spec.summary       = 'Mailin adapter for Griddler'
-  spec.description   = 'Adapter to allow the use of Mailin (http://mailin.io/) with Griddler'
+  spec.homepage      = 'https://github.com/loomio/griddler-mailin'
+  spec.description   = 'Adapter to allow the use of Mailin (http://mailin.io/) with Griddler (http://griddler.io/)'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
