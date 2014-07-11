@@ -2,7 +2,11 @@ module Griddler
   module Mailin
     class Adapter
       def initialize(params)
-        @raw_params = params
+        if params['mailinMsg'].is_a? String
+          @params = JSON.parse(params['mailinMsg'])
+        else
+          @params = params['mailinMsg']
+        end
       end
 
       def self.normalize_params(params)
@@ -24,10 +28,6 @@ module Griddler
       private
 
       attr_reader :params
-
-      def params
-        @raw_params['mailinMsg']
-      end
 
       def parse_recipients(mailin_to)
         mailin_to.map do | obj |
