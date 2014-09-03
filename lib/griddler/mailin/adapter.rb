@@ -15,15 +15,16 @@ module Griddler
       end
 
       def normalize_params
-        {
+        h = {
           to: parse_recipients(params['to']),
           cc: parse_recipients(params['cc']),
           from: parse_recipients(params['from']).first,
           subject: params['subject'],
-          # if html is present, drop the text
-          text: (params['html'].present? ? '' : params['text']),
+          text: params['text'],
           html: params['html'],
         }
+        h.delete(:text) if h['html'].present?
+        h
       end
 
       private
