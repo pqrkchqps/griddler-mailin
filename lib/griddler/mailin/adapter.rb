@@ -15,7 +15,7 @@ module Griddler
       end
 
       def normalize_params
-        h = {
+        {
           to: parse_recipients(params['to']),
           cc: parse_recipients(params['cc']),
           from: parse_recipients(params['from']).first,
@@ -23,8 +23,6 @@ module Griddler
           text: params['text'],
           html: params['html'],
         }
-        h.delete(:text) if h['html'].present?
-        h
       end
 
       private
