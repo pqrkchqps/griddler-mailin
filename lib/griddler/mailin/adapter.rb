@@ -20,7 +20,8 @@ module Griddler
           cc: parse_recipients(params['cc']),
           from: parse_recipients(params['from']).first,
           subject: params['subject'],
-          text: params['text'],
+          # if html is present, drop the text
+          text: (params['html'].present? ? '' : params['text']),
           html: params['html'],
         }
       end
